@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <!-- --------- UNICONS ---------- -->
+     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css" />
+
+     <!-- --------- CSS ---------- -->
+     <link rel="stylesheet" href="assets/css/style.css" />
+ 
+     <!-- --------- FAVICON ---------- -->
+     <link rel="shortcut icon" href="assets/images/favicon.png" type="image/x-icon" />
+    <title>HTML5 Geolocation API</title>
+    <style>
+
+        /* Header styling */
+        #header {
+
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .nav-menu ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-menu ul li a {
+
+            text-decoration: none;
+        }
+        /* Basic page styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        h2 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        /* Styling the button */
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: white;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        button:active {
+            background-color: #004080;
+            transform: scale(0.98);
+        }
+
+        /* Styling the status and coordinates paragraphs */
+        #status, #coordinates {
+            font-size: 18px;
+            color: #555;
+            margin-top: 15px;
+            text-align: center;
+        }
+
+        /* Map container styling */
+        #map {
+            width: 100%;
+            max-width: 600px;
+            height: 400px;
+            margin-top: 20px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+         /* Footer styling */
+         footer {
+            color: rgb(0, 0, 0);
+            padding: 20px;
+            text-align: center;
+            position: relative;
+            width: 100%;
+            bottom: 0;
+        }
+
+        .footer-menu {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .footer-menu li a {
+            color: rgb(0, 0, 0);
+            text-decoration: none;
+        }
+
+        /* Add responsiveness for smaller screens */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .container {
+                margin-top: 60px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- --------------- HEADER --------------- -->
+    <nav id="header">
+        <div class="nav-logo">
+            <p class="nav-name">Resky Yulianti</p>
+        </div>
+        <div class="nav-menu" id="myNavMenu">
+            <ul class="nav_menu_list">
+                <li class="nav_list"><a href="index.html" class="nav-link">Home</a></li>
+                <li class="nav_list"><a href="index.html#about" class="nav-link">About</a></li>
+                <li class="nav_list"><a href="index.html#project" class="nav-link">Project</a></li>
+                <li class="nav_list"><a href="index.html#tutorial" class="nav-link">Tutorial</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="instruction-card">
+        <h3>Petunjuk Penggunaan</h3>
+        <p>1. Klik tombol <strong>"Get Location"</strong> untuk mengambil lokasi saat ini.</p>
+        <p>2. Jika diminta, izinkan akses lokasi di pengaturan browser Anda.</p>
+        <p>3. Koordinat (latitude dan longitude) akan ditampilkan di bawah tombol.</p>
+        <p>4. Peta lokasi Anda akan muncul di bawah koordinat.</p>
+        <p>5. Jika terjadi error, pastikan Anda memberikan izin akses lokasi atau coba muat ulang halaman.</p>
+    </div>
+    
+    <h2>Geolocation API Example</h2>
+    <button onclick="getLocation()">Get Location</button>
+    <p id="status"></p>
+    <p id="coordinates"></p>
+    <div id="map"></div>
+
+    <script>
+        function getLocation() {
+            const statusElement = document.getElementById("status");
+            const coordinatesElement = document.getElementById("coordinates");
+
+            // Check if geolocation is supported
+            if (navigator.geolocation) {
+                statusElement.textContent = "Locating...";
+                navigator.geolocation.getCurrentPosition(
+                    function (position) {
+                        const latitude = position.coords.latitude;
+                        const longitude = position.coords.longitude;
+                        
+                        // Display the coordinates
+                        coordinatesElement.textContent = `Latitude: ${latitude}, Longitude: ${longitude}`;
+                        
+                        // Optionally, display a map using Google Maps
+                        displayMap(latitude, longitude);
+                    },
+                    function (error) {
+                        switch (error.code) {
+                            case error.PERMISSION_DENIED:
+                                statusElement.textContent = "To use this feature, please allow location access in your browser settings.";
+                                break;
+                            case error.POSITION_UNAVAILABLE:
+                                statusElement.textContent = "Location information is currently unavailable.";
+                                break;
+                            case error.TIMEOUT:
+                                statusElement.textContent = "Request for location timed out. Please try again.";
+                                break;
+                            case error.UNKNOWN_ERROR:
+                                statusElement.textContent = "An unknown error occurred. Please refresh the page and try again.";
+                                break;
+                        }
+                    }
+                );
+            } else {
+                statusElement.textContent = "Geolocation is not supported by this browser.";
+            }
+        }
+
+        function displayMap(latitude, longitude) {
+            const map = document.getElementById("map");
+            const mapLink = `https://www.google.com/maps?q=${latitude},${longitude}&z=15&output=embed`;
+            map.innerHTML = `<iframe width="100%" height="100%" src="${mapLink}" frameborder="0"></iframe>`;
+        }
+    </script>
+
+    <!-- --------------- FOOTER --------------- -->
+    <footer>
+        <ul class="footer-menu">
+            <li><a href="#index.html">Home</a></li>
+            <li><a href="#about.html">About</a></li>
+            <li><a href="#project.html">Project</a></li>
+            <li><a href="#tutorial.html">Tutorial</a></li>
+            <li><a href="#contact.html">Contact</a></li>
+        </ul>
+        <div class="footer-social-icons">
+            <div class="icon"><i class="uil uil-instagram"></i></div>
+            <div class="icon"><i class="uil uil-linkedin-alt"></i></div>
+            <div class="icon"><i class="uil uil-dribbble"></i></div>
+            <div class="icon"><i class="uil uil-github-alt"></i></div>
+        </div>
+        <p>Copyright &copy; <a href="index.html" style="text-decoration: none">Resky</a> - All rights reserved</p>
+    </footer>
+
+    <!-- TYPING JS Link -->
+    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+
+    <!-- SCROLL REVEAL JS Link-->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!-- MAIN JS -->
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

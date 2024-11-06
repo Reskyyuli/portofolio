@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutorial Deploy Website ke GitHub Pages</title>
+    
+    <!-- --------- UNICONS ---------- -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css" />
+
+    <!-- --------- CSS ---------- -->
+    <link rel="stylesheet" href="assets/css/style.css" />
+
+    <!-- --------- FAVICON ---------- -->
+    <link rel="shortcut icon" href="assets/images/favicon.png" type="image/x-icon" />
+
+    <style>
+         body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+       /* Main Content Styling */
+main {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+main p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.step {
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+.step h2 {
+    font-size: 1.4em;
+    color: #007bff;
+    margin-bottom: 10px;
+}
+
+.step ul {
+    padding-left: 20px;
+    margin-top: 10px;
+    list-style-type: disc;
+}
+
+.step ul li {
+    margin-bottom: 8px;
+    line-height: 1.4;
+}
+
+.step code {
+    display: inline-block;
+    padding: 5px 8px;
+    background-color: #eef;
+    border-radius: 4px;
+    font-size: 0.95em;
+    color: #007bff;
+}
+
+.note {
+    padding: 15px;
+    background-color: #e9f7ff;
+    border-left: 4px solid #007bff;
+    border-radius: 8px;
+    color: #555;
+    margin-top: 20px;
+    font-style: italic;
+}
+
+/* Link Styling */
+main a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+main a:hover {
+    text-decoration: underline;
+}
+
+        /* Header styling */
+        #header {
+
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+         }
+
+        .nav-menu ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-menu ul li a {
+
+            text-decoration: none;
+        }
+                /* Footer styling */
+                footer {
+            color: rgb(0, 0, 0);
+            padding: 20px;
+            text-align: center;
+            position: relative;
+            width: 100%;
+            bottom: 0;
+        }
+
+        .footer-menu {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .footer-menu li a {
+            color: rgb(0, 0, 0);
+            text-decoration: none;
+        }
+
+        /* Add responsiveness for smaller screens */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .container {
+                margin-top: 60px;
+            }
+        }
+        
+    </style>
+</head>
+<body>
+ <!-- --------------- HEADER --------------- -->
+ <nav id="header">
+    <div class="nav-logo">
+        <p class="nav-name">Resky Yulianti</p>
+    </div>
+    <div class="nav-menu" id="myNavMenu">
+        <ul class="nav_menu_list">
+            <li class="nav_list"><a href="index.html" class="nav-link">Home</a></li>
+            <li class="nav_list"><a href="index.html#about" class="nav-link">About</a></li>
+            <li class="nav_list"><a href="index.html#project" class="nav-link">Project</a></li>
+            <li class="nav_list"><a href="index.html#tutorial" class="nav-link">Tutorial</a></li>
+        </ul>
+    </div>
+</nav>
+    <!-- Content -->
+    <main>
+        <p>Panduan ini akan membantu Anda melakukan deploy website statis ke GitHub Pages.</p>
+
+        <div class="step">
+            <h2>Langkah 1: Buat Repository GitHub</h2>
+            <p>Buka <a href="https://github.com" target="_blank">GitHub</a> dan buat repository baru. Pastikan untuk:</p>
+            <ul>
+                <li>Memberi nama repository (misalnya, <code>my-website</code>).</li>
+                <li>Menyetelnya sebagai <strong>public</strong> agar GitHub Pages dapat mengaksesnya.</li>
+                <li>Menginisialisasi dengan file <code>README.md</code> (opsional).</li>
+            </ul>
+        </div>
+
+        <div class="step">
+            <h2>Langkah 2: Tambahkan File Website Anda</h2>
+            <p>Clone repository ke komputer Anda dengan perintah:</p>
+            <code>git clone https://github.com/username/my-website.git</code>
+            <p>Ganti <code>username</code> dan <code>my-website</code> dengan nama pengguna dan nama repository GitHub Anda.</p>
+            <p>Tempatkan semua file website Anda (HTML, CSS, JS) ke folder ini. Pastikan file utama bernama <code>index.html</code>.</p>
+        </div>
+
+        <div class="step">
+            <h2>Langkah 3: Commit dan Push Kode Anda</h2>
+            <p>Buka terminal di folder website Anda, lalu jalankan perintah berikut untuk mengunggah file ke GitHub:</p>
+            <code>git add .</code><br>
+            <code>git commit -m "Initial commit"</code><br>
+            <code>git push origin main</code>
+        </div>
+
+        <div class="step">
+            <h2>Langkah 4: Konfigurasi GitHub Pages</h2>
+            <p>Buka repository Anda di GitHub, kemudian:</p>
+            <ul>
+                <li>Klik pada <strong>Settings</strong>.</li>
+                <li>Gulir ke bawah ke bagian <strong>GitHub Pages</strong>.</li>
+                <li>Di bawah <strong>Source</strong>, pilih branch <code>main</code> atau <code>master</code>, lalu klik <strong>Save</strong>.</li>
+            </ul>
+        </div>
+
+        <div class="step">
+            <h2>Langkah 5: Akses Website yang Sudah Dideploy</h2>
+            <p>GitHub Pages akan memerlukan beberapa menit untuk melakukan deploy. Setelah selesai, Anda dapat mengaksesnya di:</p>
+            <p><code>https://username.github.io/my-website/</code></p>
+            <p>Ganti <code>username</code> dan <code>my-website</code> dengan nama pengguna dan nama repository GitHub Anda.</p>
+        </div>
+
+        <div class="note">
+            <p><strong>Catatan:</strong> GitHub Pages hanya untuk website statis. Untuk fitur backend, pertimbangkan platform seperti Heroku, Vercel, atau Netlify.</p>
+        </div>
+    </main>
+
+   <!-- --------------- FOOTER --------------- -->
+   <footer>
+    <ul class="footer-menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="project.html">Project</a></li>
+        <li><a href="tutorial.html">Tutorial</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="footer-social-icons">
+        <div class="icon"><i class="uil uil-instagram"></i></div>
+        <div class="icon"><i class="uil uil-linkedin-alt"></i></div>
+        <div class="icon"><i class="uil uil-dribbble"></i></div>
+        <div class="icon"><i class="uil uil-github-alt"></i></div>
+    </div>
+    <p>Copyright &copy; <a href="index.html" style="text-decoration: none">Resky</a> - All rights reserved</p>
+</footer>
+
+<!-- TYPING JS Link -->
+<script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+
+<!-- SCROLL REVEAL JS Link-->
+<script src="https://unpkg.com/scrollreveal"></script>
+
+<!-- MAIN JS -->
+<script src="assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabel</title>
+
+    <!-- --------- UNICONS ---------- -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css" />
+
+    <!-- --------- CSS ---------- -->
+    <link rel="stylesheet" href="assets/css/style.css" />
+
+    <!-- --------- FAVICON ---------- -->
+    <link rel="shortcut icon" href="assets/images/favicon.png" type="image/x-icon" />
+
+    <style>
+        /* Styling umum */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Header styling */
+        #header {
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .nav-menu ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-menu ul li a {
+            text-decoration: none;
+        }
+
+        /* Container styling */
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            margin-top: 80px;
+            flex: 1;
+        }
+
+        /* Tabel styling */
+        table {
+            width: 100%;
+            min-width: 600px;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        .responsive-table {
+            overflow-x: auto;
+            display: block;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #56db56;
+            color: white;
+        }
+
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+
+        /* Info card styling */
+        .info-card {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 100%;
+            margin: 20px auto;
+        }
+
+        .info-card h4 {
+            margin-bottom: 10px;
+            text-align: center;
+            color: #000800;
+        }
+
+        .info-card p {
+            font-size: 14px;
+            color: #333;
+            line-height: 1.5;
+            text-align: justify;
+        }
+
+        /* Footer styling */
+       footer {
+            color: rgb(0, 0, 0);
+            padding: 20px;
+            text-align: center;
+            position: relative;
+            width: 100%;
+            bottom: 0;
+        }
+
+        .footer-menu {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .footer-menu li a {
+            color: rgb(0, 0, 0);
+            text-decoration: none;
+        }
+
+        /* Add responsiveness for smaller screens */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .container {
+                margin-top: 60px;
+            }
+        }
+      
+    </style>
+</head>
+<body>
+    <!-- --------------- HEADER --------------- -->
+    <nav id="header">
+        <div class="nav-logo">
+            <p class="nav-name">Resky Yulianti</p>
+        </div>
+        <div class="nav-menu" id="myNavMenu">
+            <ul class="nav_menu_list">
+                <li class="nav_list"><a href="index.html" class="nav-link">Home</a></li>
+                <li class="nav_list"><a href="index.html#about" class="nav-link">About</a></li>
+                <li class="nav_list"><a href="index.html#project" class="nav-link">Project</a></li>
+                <li class="nav_list"><a href="index.html#tutorial" class="nav-link">Tutorial</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main container -->
+    <div class="info-card" id="tutorial">
+        <h4>Penjelasan Tabel Mahasiswa</h4>
+        <p>Tabel ini berisi data mahasiswa berdasarkan NIM, nama, nilai IPK dari semester 1 hingga 5, serta jurusan dan fakultasnya. Data ini digunakan untuk memantau perkembangan akademik mahasiswa.</p>
+    </div>
+
+    <!-- Judul tabel dan tabel mahasiswa -->
+    <h2>Tabel Mahasiswa</h2>
+    <div class="responsive-table">
+        <table>
+            <thead>
+                <tr>
+                    <th>NIM</th>
+                    <th>Nama</th>
+                    <th>IPK Semester 1</th>
+                    <th>IPK Semester 2</th>
+                    <th>IPK Semester 3</th>
+                    <th>IPK Semester 4</th>
+                    <th>IPK Semester 5</th>
+                    <th>Jurusan</th>
+                    <th>Fakultas</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>5220311067</td>
+                    <td>Resky Julianti</td>
+                    <td>3.5</td>
+                    <td>3.6</td>
+                    <td>3.6</td>
+                    <td>3.6</td>
+                    <td>3.6</td>
+                    <td>Sistem Informasi</td>
+                    <td>Fakultas Sains & Teknologi</td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr>
+                    <td>5220311067</td>
+                    <td>Mercy S Batuani</td>
+                    <td>3.5</td>
+                    <td>3.6</td>
+                    <td>3.6</td>
+                    <td>3.6</td>
+                    <td>3.6</td>
+                    <td>Sistem Informasi</td>
+                    <td>Fakultas Sains & Teknologi</td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr>
+                    <td>5220311067</td>
+                    <td>Nike Pratiwi Pasaribu</td>
+                    <td>3.5</td>
+                    <td>3.6</td>
+                    <td>3.6</td>
+                    <td>3.6</td>
+                    <td>3.6</td>
+                    <td>Sistem Informasi</td>
+                    <td>Fakultas Sains & Teknologi</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- --------------- FOOTER --------------- -->
+    <footer>
+        <ul class="footer-menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="project.html">Project</a></li>
+            <li><a href="tutorial.html">Tutorial</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="footer-social-icons">
+            <div class="icon"><i class="uil uil-instagram"></i></div>
+            <div class="icon"><i class="uil uil-linkedin-alt"></i></div>
+            <div class="icon"><i class="uil uil-dribbble"></i></div>
+            <div class="icon"><i class="uil uil-github-alt"></i></div>
+        </div>
+        <p>Copyright &copy; <a href="index.html" style="text-decoration: none">Resky</a> - All rights reserved</p>
+    </footer>
+
+    <!-- TYPING JS Link -->
+    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+
+    <!-- SCROLL REVEAL JS Link-->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!-- MAIN JS -->
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

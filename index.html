@@ -1,0 +1,527 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- --------- UNICONS ---------- -->
+    <link
+      rel="stylesheet"
+      href="https://unicons.iconscout.com/release/v4.0.8/css/line.css"
+    />
+
+    <!-- --------- CSS ---------- -->
+    <link rel="stylesheet" href="assets/css/style.css" />
+
+    <!-- --------- FAVICON ---------- -->
+    <link
+      rel="shortcut icon"
+      href="assets/images/favicon.png"
+      type="image/x-icon"
+    />
+
+    <title>Portfolio</title>
+
+    <style>
+
+ /* Header styling */
+ #header {
+
+padding: 10px 20px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+position: sticky;
+top: 0;
+z-index: 10;
+}
+
+.nav-menu ul {
+list-style: none;
+display: flex;
+gap: 20px;
+}
+
+.nav-menu ul li a {
+
+text-decoration: none;
+}
+/* Styling untuk bagian Tutorial */
+#tutorial {
+    padding: 60px 20px;
+    background-color: #5b9cd5;
+    text-align: center;
+}
+
+#tutorial .top-header h1 {
+    font-size: 32px;
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+#tutorial h3 {
+    font-size: 24px;
+    color: #000000;
+    margin-bottom: 30px;
+    font-weight: 500;
+}
+
+.tutorial-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px 0;
+}
+
+/* Styling untuk setiap kotak tutorial */
+.tutorial-box {
+    width: 250px;
+    padding: 20px;
+    background-color: #fdfdfd;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    position: relative;
+}
+
+.tutorial-box h3 {
+    font-size: 20px;
+    color: #080808;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.tutorial-box label {
+    font-size: 14px;
+    color: #555;
+}
+
+/* Styling icon */
+.tutorial-box .icon {
+    font-size: 40px;
+    color: #007bff;
+    margin-bottom: 15px;
+    transition: color 0.3s;
+}
+
+.tutorial-box:hover .icon {
+    color: #000000;
+}
+
+/* Efek Hover pada Tutorial Box */
+.tutorial-box::after {
+    content: "";
+    position: absolute;
+    bottom: -100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 123, 255, 0.1);
+    border-radius: 10px;
+    z-index: -1;
+    transition: bottom 0.4s;
+}
+
+.tutorial-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.tutorial-box:hover::after {
+    bottom: 0;
+}
+
+.tutorial-box:hover h3,
+.tutorial-box:hover label {
+    color: #37618e;
+}
+
+/* Responsivitas untuk tampilan mobile */
+@media (max-width: 768px) {
+    .tutorial-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .tutorial-box {
+        width: 100%;
+        max-width: 300px;
+    }
+}
+/* Styling for About Me Section */
+.section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+#about .top-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.about-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    max-width: 800px;
+    width: 100%;
+}
+
+/* Styling for Each About Box */
+.about-box {
+    flex: 1 1 250px;
+    min-width: 250px;
+    max-width: 350px;
+    padding: 20px;
+    background-color: #fdfdfd;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about-box h3 {
+    font-size: 18px;
+    color: #007bff;
+    margin-bottom: 10px;
+}
+
+.about-box p {
+    font-size: 14px;
+    color: #555;
+}
+
+.about-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    .about-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .about-box {
+        width: 100%;
+        max-width: 90%;
+    }
+}
+footer {
+            color: rgb(0, 0, 0);
+            padding: 20px;
+            text-align: center;
+            position: relative;
+            width: 100%;
+            bottom: 0;
+        }
+
+        .footer-menu {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .footer-menu li a {
+            color: rgb(0, 0, 0);
+            text-decoration: none;
+        }
+
+        /* Add responsiveness for smaller screens */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .container {
+                margin-top: 60px;
+            }
+        }
+
+</style>
+  </head>
+  <body>
+    <div class="container">
+      <!-- --------------- HEADER --------------- -->
+      <nav id="header">
+        <div class="nav-logo">
+          <p class="nav-name">Resky Yulianti</p>
+
+        </div>
+        <div class="nav-menu" id="myNavMenu">
+          <ul class="nav_menu_list">
+            <li class="nav_list">
+              <a href="#home" class="nav-link active-link">Home</a>
+              <div class="circle"></div>
+            </li>
+            <li class="nav_list">
+              <a href="#about" class="nav-link">About</a>
+              <div class="circle"></div>
+            </li>
+            <li class="nav_list">
+              <a href="#project" class="nav-link">Project</a>
+              <div class="circle"></div>
+            </li>
+            <li class="nav_list">
+                <a href="#tutorial" class="nav-link">Tutorial</a>
+                <div class="circle"></div>
+              </li>
+            <li class="nav_list">
+              <a href="#contact" class="nav-link">Contact</a>
+              <div class="circle"></div>
+            </li>
+          </ul>
+        </div>
+        <div class="nav-button">
+          <button class="btn">
+            Download CV <i class="uil uil-file-alt"></i>
+          </button>
+        </div>
+        <div class="nav-menu-btn">
+          <i class="uil uil-bars" onclick="myMenuFunction()"></i>
+        </div>
+      </nav>
+
+      <!-- -------------- MAIN ---------------- -->
+      <main class="wrapper">
+        <!-- -------------- FEATURED BOX ---------------- -->
+        <section class="featured-box" id="home">
+          <div class="featured-text">
+            <div class="featured-text-card">
+              <span>Resky Yulianti</span>
+            </div>
+            <div class="featured-name">
+              <p>I'm <span class="typedText"></span></p>
+            </div>
+            <div class="featured-text-info">
+              <p>
+                I am a data engineer focused on building and managing reliable and efficient data infrastructure. 
+                With expertise in building scalable data pipelines, I ensure that data from various sources can be collected, processed, 
+                and optimized to support business analysis and informed decision making.
+              </p>
+            </div>
+            <div class="featured-text-btn">
+              <button class="btn blue-btn">Hire Me</button>
+              <button class="btn" onclick="openCV()">
+                  Download CV <i class="uil uil-file-alt"></i>
+              </button>
+          </div>
+          
+          <script>
+              function openCV() {
+                  // Path gambar CV di folder assets/images
+                  const cvUrl = 'assets/images/cv.jpg';
+                  
+                  // Buka gambar di tab/jendela baru
+                  window.open(cvUrl, '_blank');
+              }
+          </script>
+          
+            <div class="social_icons">
+              <div class="icon"><i class="uil uil-instagram"></i></div>
+              <div class="icon"><i class="uil uil-linkedin-alt"></i></div>
+              <div class="icon"><i class="uil uil-dribbble"></i></div>
+              <div class="icon"><i class="uil uil-github-alt"></i></div>
+            </div>
+          </div>
+          <div class="featured-image">
+            <div class="image">
+              <img src="assets/images/dinda.jpg" alt="avatar" />
+            </div>
+          </div>
+
+            </a>
+          </div>
+        </section>
+        <!-- -------------- ABOUT BOX ---------------- -->
+        <section class="section" id="about">
+          <div class="top-header">
+              <h1>About Me</h1>
+          </div>
+          <div class="about-container">
+              <!-- Personal Introduction Box -->
+              <div class="about-box">
+                  <h3>Introduction</h3>
+                  <p style="text-align: justify;">
+                      Hallo, saya Resky. Saya memiliki pengalaman dalam pengembangan aplikasi web yang membantu 
+                      pelanggan memesan makanan secara online dengan mudah. Saya fokus pada solusi digital yang 
+                      efektif dan efisien untuk meningkatkan skala bisnis dan kepuasan pelanggan. 
+                      Salah satu proyek yang saya kerjakan adalah "Pengembangan Sistem Pemesanan Seblak Pasta" 
+                      berbasis web, yang memungkinkan pelanggan memesan berbagai varian seblak dengan pilihan 
+                      pembayaran digital. Sistem ini membantu mempercepat proses pemesanan dan mengurangi kesalahan 
+                      dalam pencatatan manual.
+                  </p>
+              </div>
+        
+              <!-- Skills Overview Box -->
+              <div class="about-box">
+                  <h3>Skills</h3>
+                  <p>
+                      <strong>Frontend:</strong> HTML, CSS, JavaScript<br>
+                      <strong>Backend:</strong> PHP, Node.js<br>
+                      <strong>Database:</strong> MySQL, MongoDB<br>
+                      <strong>Tools & Frameworks:</strong> Bootstrap, jQuery, Git
+                  </p>
+              </div>
+          </div>
+      </section>
+      
+          
+        <!-- -------------- PROJECT BOX ---------------- -->
+
+        <section class="section" id="project">
+          <div class="top-header">
+            <h1>Projects</h1>
+          </div>
+          <div class="project-container">
+            <div class="project-box"
+            onClick="window.open('https://drive.google.com/drive/folders/1dLHj4_4-hXhvT-PX9Co0P2Tae3J5TZlo?usp=sharing')">
+              <i class="uil uil-comment-heart"></i>
+              <h3>Projek</h3>
+            </div>
+            <div class="project-box"
+            onClick="window.open('https://www.figma.com/file/o3pzSo7pPDCWaoi1S88Pe9/Kelompok-8-Obelix-Hills-SkyView?type=design&node-id=0%3A1&mode=design&t=n96yNo6L70me9J4H-1')">
+              <i class="uil uil-comment-heart"></i>
+              <h3>Figma</h3>
+            </div>
+            <div class="project-box"
+            onClick="window.open('https://www.figma.com/file/o3pzSo7pPDCWaoi1S88Pe9/Kelompok-8-Obelix-Hills-SkyView?type=design&node-id=0%3A1&mode=design&t=n96yNo6L70me9J4H-1')">
+              <i class="uil uil-comment-heart"></i>
+              <h3>Figma</h3>
+            </div>
+        </section>
+
+        <section class="section" id="tutorial">
+          <div class="top-header">
+              <h1>Tutorial</h1>
+          </div>
+          <div class="tutorial-container">
+              <div class="tutorial-box" onClick="window.open('form.html')">
+                  <div class="icon"><i class="uil uil-file-alt"></i></div>
+                  <h3>Tutor Form</h3>
+                  <label>klik disini</label>
+              </div>
+      
+              <div class="tutorial-box" onClick="window.open('tabel.html')">
+                  <div class="icon"><i class="uil uil-table"></i></div>
+                  <h3>Tutor Tabel</h3>
+                  <label>klik disini</label>
+              </div>
+      
+              <div class="tutorial-box" onClick="window.open('api.html')">
+                  <div class="icon"><i class="uil uil-code-branch"></i></div>
+                  <h3>Tutor API HTML5</h3>
+                  <label>klik disini</label>
+              </div>
+      
+              <div class="tutorial-box" onClick="window.open('canva.html')">
+                  <div class="icon"><i class="uil uil-palette"></i></div>
+                  <h3>Tutor Canvas</h3>
+                  <label>klik disini</label>
+              </div>
+      
+              <div class="tutorial-box" onClick="window.open('deploy.html')">
+                  <div class="icon"><i class="uil uil-cloud-upload"></i></div>
+                  <h3>Tutor Deploy</h3>
+                  <label>klik disini</label>
+              </div>
+          </div>
+      </section>
+
+      <section class="section" id="contact">
+        <div class="top-header">
+            <h1>Contact Me</h1>
+            <p>Jangan ragu untuk menghubungi saya jika ingin bekerja sama atau sekadar menyapa!</p>
+          </div>
+        </div>
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3>Contact Information</h3>
+                <p>Email: reskyyuliantipasolon@gmail.com</p>
+                <p>Phone: +62 123 4567 890</p>
+                <p>Address: Yogyakarta, Indonesia</p>
+            </div>
+    
+            <!-- Contact Form -->
+            <div class="contact-form">
+                <form action="https://formspree.io/f/your-form-id" method="POST">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required placeholder="Your Name">
+                    
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required placeholder="Your Email">
+                    
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" rows="5" required placeholder="Your Message"></textarea>
+                    
+                    <button type="submit" class="btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    
+      
+
+      <!-- --------------- FOOTER --------------- -->
+       <section class="section" id="Contact">
+      <footer>
+        <div class="top-footer">
+          <p>Resky Yulianti</p>
+        </div>
+        <div class="middle-footer">
+          <ul class="footer-menu">
+            <li class="footer_menu_list">
+              <a href="#home">Home</a>
+            </li>
+            <li class="footer_menu_list">
+              <a href="#about">About</a>
+            </li>
+            <li class="footer_menu_list">
+              <a href="#project">Projects</a>
+            </li>
+            <li class="footer_menu_list">
+                <a href="#tutorial">Tutorial</a>
+              </li>
+            <li class="footer_menu_list">
+              <a href="#contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+        <div class="footer-social-icons">
+          <div class="icon"><i class="uil uil-instagram"></i></div>
+          <div class="icon"><i class="uil uil-linkedin-alt"></i></div>
+          <div class="icon"><i class="uil uil-dribbble"></i></div>
+          <div class="icon"><i class="uil uil-github-alt"></i></div>
+        </div>
+        <div class="bottom-footer">
+          <p>
+            Copyright &copy;
+            <a href="#home" style="text-decoration: none">Resky</a> - All
+            rights reserved
+          </p>
+        </div>
+      </footer>
+    </div>
+</section>
+
+    <!-- ----- TYPING JS Link ----- -->
+    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+
+    <!-- ----- SCROLL REVEAL JS Link----- -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!-- ----- MAIN JS ----- -->
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>

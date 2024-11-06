@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrasi</title>
+    
+    <!-- --------- UNICONS ---------- -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css" />
+
+    <!-- --------- CSS ---------- -->
+    <link rel="stylesheet" href="assets/css/style.css" />
+
+    <!-- --------- FAVICON ---------- -->
+    <link rel="shortcut icon" href="assets/images/favicon.png" type="image/x-icon" />
+
+    <style>
+         body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Header styling */
+        #header {
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .nav-menu ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-menu ul li a {
+            text-decoration: none;
+        }
+
+        /* Basic page styling */
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-family: Arial, sans-serif;
+            background-color: #5b9cd5;
+            margin: 0;
+            height: 100vh;
+        }
+        
+
+        /* Styling the paragraph elements */
+        p {
+            font-size: 18px;
+            color: #333;
+            margin: 10px 0;
+        }
+
+        /* Styling the image */
+        img {
+            margin-top: 10px;
+            border: 1px solid #d3d3d3;
+            border-radius: 8px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Styling the canvas */
+        canvas {
+            margin-top: 10px;
+            border: 1px solid #d3d3d3;
+            border-radius: 8px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Styling the button */
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: white;
+            background-color: #4CAF50;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.1s ease;
+            margin-top: 20px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        button:active {
+            transform: scale(0.98);
+        }
+
+        /* Container to align images in a row */
+        .image-row {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .image-row img {
+            width: 220px;
+            height: 277px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Footer styling */
+        footer {
+            color: rgb(0, 0, 0);
+            padding: 20px;
+            text-align: center;
+            position: relative;
+            width: 100%;
+            bottom: 0;
+        }
+
+        .footer-menu {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .footer-menu li a {
+            color: rgb(0, 0, 0);
+            text-decoration: none;
+        }
+
+        /* Add responsiveness for smaller screens */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .container {
+                margin-top: 60px;
+            }
+        }
+      
+  .instruction-card {
+    background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 100%;
+            margin: 20px auto;
+  }
+
+  .instruction-card h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #000000;
+  }
+
+  .instruction-card p {
+    font-size: 16px;
+    margin: 5px 0;
+  }
+
+
+    </style>
+</head>
+<body>
+     <!-- --------------- HEADER --------------- -->
+     <nav id="header">
+      <div class="nav-logo">
+          <p class="nav-name">Resky Yulianti</p>
+      </div>
+      <div class="nav-menu" id="myNavMenu">
+          <ul class="nav_menu_list">
+              <li class="nav_list"><a href="index.html" class="nav-link">Home</a></li>
+              <li class="nav_list"><a href="index.html#about" class="nav-link">About</a></li>
+              <li class="nav_list"><a href="index.html#project" class="nav-link">Project</a></li>
+              <li class="nav_list"><a href="index.html#tutorial" class="nav-link">Tutorial</a></li>
+          </ul>
+      </div>
+    </nav>
+    <div class="instruction-card">
+      <h3>Petunjuk Penggunaan Kanvas</h3>
+      <p>1. Pilih salah satu gambar dari pilihan di atas dengan mengkliknya.</p>
+      <p>2. Setelah gambar terpilih, klik tombol <strong>Try it</strong> untuk menampilkan gambar pada kanvas.</p>
+      <p>3. Jika ingin mengganti gambar, pilih gambar lain dan klik <strong>Try it</strong> lagi.</p>
+    </div>
+
+    <p>Pilih gambar:</p>
+    <div class="image-row">
+        <img id="gambar1" src="assets/images/d.jpg" alt="gambar" width="220" height="277" onclick="selectImage(this)" />
+        <img id="gambar2" src="assets/images/a.jpg" alt="gambar" width="220" height="277" onclick="selectImage(this)" />
+        <img id="gambar3" src="assets/images/c.jpg" alt="gambar" width="220" height="277" onclick="selectImage(this)" />
+        <img id="gambar4" src="assets/images/d.jpg" alt="gambar" width="220" height="277" onclick="selectImage(this)" />
+    </div>
+
+    <p>Mengisi :</p>
+    <canvas id="kanvas" width="220" height="277">Your browser does not support the HTML5 canvas tag.</canvas>
+    <p><button onclick="kanvas()">Try it</button></p>
+
+    <script>
+      let selectedImage = null;
+
+      function selectImage(img) {
+        selectedImage = img;
+        document.querySelectorAll('.image-row img').forEach(image => {
+          image.style.border = '1px solid #d3d3d3';
+        });
+        img.style.border = '2px solid #4CAF50';
+      }
+
+      function kanvas() {
+        if (selectedImage) {
+          var c = document.getElementById("kanvas");
+          var ctx = c.getContext("2d");
+          ctx.clearRect(0, 0, c.width, c.height);
+          ctx.drawImage(selectedImage, 0, 0, c.width, c.height);
+        } else {
+          alert("Please select an image first.");
+        }
+      }
+    </script>
+    
+    
+
+    <!-- --------------- FOOTER --------------- -->
+    <footer>
+        <ul class="footer-menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="project.html">Project</a></li>
+            <li><a href="tutorial.html">Tutorial</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="footer-social-icons">
+            <div class="icon"><i class="uil uil-instagram"></i></div>
+            <div class="icon"><i class="uil uil-linkedin-alt"></i></div>
+            <div class="icon"><i class="uil uil-dribbble"></i></div>
+            <div class="icon"><i class="uil uil-github-alt"></i></div>
+        </div>
+        <p>Copyright &copy; <a href="index.html" style="text-decoration: none">Resky</a> - All rights reserved</p>
+    </footer>
+
+    <!-- TYPING JS Link -->
+    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+
+    <!-- SCROLL REVEAL JS Link-->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!-- MAIN JS -->
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
